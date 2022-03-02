@@ -1,9 +1,6 @@
 # github_search React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). with **TypeScript**
-
-# github_search React App
-
 Insall all packages with `npm i`
 
 ## Available Scripts
