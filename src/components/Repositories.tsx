@@ -21,16 +21,15 @@ const Repositories: FC<Props> = function Repositories() {
   return (
     <div>
       {loading ? (
-        <div className="loader">
+        <div>
           Loading...
         </div>
       ) : (records.map((item: IRepository) => (
         <Card key={item.id} item={item} />
-      ))
-      )}
+      )))}
 
       {records.length === 0 && (
-        <div className="loader">
+        <div>
           No records
         </div>
       )}

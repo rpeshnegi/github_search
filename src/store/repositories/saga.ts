@@ -5,17 +5,8 @@ import {
   getRepositoriesSuccess,
   getRepositoriesFail,
 } from './actions';
-import { IRepositoryRes } from './types';
+import { IResponse } from './types';
 import { IRepository } from '../../types/IRepository.d';
-
-type IResponse = {
-  config: any,
-  data: IRepositoryRes,
-  headers: any,
-  request: any,
-  status: number
-  statusText: string
-}
 
 const getRepositories = (search: string) => axios.get<IResponse>(`https://api.github.com/search/repositories?q=${search}`);
 

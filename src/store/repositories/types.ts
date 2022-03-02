@@ -1,4 +1,4 @@
-import { IRepository } from '../../types/IRepository';
+import { IRepository } from '../../types/IRepository.d';
 
 export type RepositoriesState = {
   loading: boolean;
@@ -17,4 +17,13 @@ export type IRepositoryRes = {
   incomplete_results: boolean
   items: any[] | IRepository[],
   total_count: number
+};
+
+export type IResponse = {
+  config: any,
+  data: IRepositoryRes,
+  headers: any,
+  request: any,
+  status: number
+  statusText: string
 };
