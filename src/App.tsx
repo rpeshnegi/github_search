@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './App.css';
+import { debounce } from 'lodash';
 import Navigation from './components/Navigation';
 import Repositories from './components/Repositories';
 import { getRepositories } from './store/repositories/actions';
-import { debounce } from "lodash"
 
 type Props = {}
+const searchCharLenth = 2;
 
-const App: React.FC<Props> = () => {
-  let dispatch = useDispatch();
-  const [search, setSearch] = useState<string>('')
+const App: React.FC<Props> = function App() {
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState<string>('');
 
   const getData = debounce((value: string) => {
     dispatch(getRepositories(value));
   }, 300);
 
   useEffect(() => {
-    search !== '' && getData(search)
+    if (search.length > searchCharLenth) getData(search);
     return () => {
-      getData.cancel()
-    }
+      getData.cancel();
+    };
   }, [search, getData]);
 
   return (
@@ -30,6 +31,6 @@ const App: React.FC<Props> = () => {
       <Repositories />
     </div>
   );
-}
+};
 
 export default App;

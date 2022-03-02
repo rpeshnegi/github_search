@@ -1,9 +1,10 @@
+/* eslint-disable no-param-reassign */
 import {
   GET_REPOSITORIES,
   GET_REPOSITORIES_SUCCESS,
-  GET_REPOSITORIES_FAIL
-} from "./actionTypes";
-import { IRepositoryActions, RepositoriesState } from "./types";
+  GET_REPOSITORIES_FAIL,
+} from './actionTypes';
+import { IRepositoryActions, RepositoriesState } from './types';
 
 const initialState: RepositoriesState = {
   loading: false,
@@ -11,10 +12,11 @@ const initialState: RepositoriesState = {
   incomplete_results: true,
   total_count: 0,
   error: {
-    message: "",
+    message: '',
   },
 };
 
+// eslint-disable-next-line default-param-last
 const RepositorytReducer = (state = initialState, action: IRepositoryActions) => {
   switch (action.type) {
     case GET_REPOSITORIES:

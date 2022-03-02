@@ -1,4 +1,4 @@
-import { IRepository } from "../../types/IRepository";
+import { IRepository } from '../../types/IRepository';
 
 export type RepositoriesState = {
   loading: boolean;
@@ -17,4 +17,4 @@ export type IRepositoryRes = {
   incomplete_results: boolean
   items: any[] | IRepository[],
   total_count: number
-}
+};

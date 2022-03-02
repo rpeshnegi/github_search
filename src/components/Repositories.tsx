@@ -1,19 +1,22 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
-// import { Card, Container, Row, Col } from "react-bootstrap";
-import { useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
-import { IRepository } from "../types/IRepository";
-
+import React, {
+  FC, useEffect, useMemo, useState,
+} from 'react';
+import { useSelector } from 'react-redux';
+import { IRepository } from '../types/IRepository.d';
+import Card from './Card';
 
 type Props = {}
 
-const Repositories: FC<Props> = () => {
+const Repositories: FC<Props> = function Repositories() {
   const { loading, items } = useSelector((state: any) => state.RepositorytReducer);
-  const [records, setRecords] = useState<IRepository[]>([])
+  const [records, setRecords] = useState<IRepository[]>([]);
 
   useMemo(() => {
-    setRecords(items)
-  }, [items])
+    setRecords(items);
+  }, [items]);
+
+  useEffect(() => {
+  }, [records]);
 
   return (
     <div>
@@ -21,15 +24,18 @@ const Repositories: FC<Props> = () => {
         <div className="loader">
           Loading...
         </div>
-      ) : (
-        records.map((item: IRepository) => {
-          return (
-            <div key={item.id}>{item.name}</div>
-          );
-        })
+      ) : (records.map((item: IRepository) => (
+        <Card key={item.id} item={item} />
+      ))
+      )}
+
+      {records.length === 0 && (
+        <div className="loader">
+          No records
+        </div>
       )}
     </div>
   );
-}
+};
 
-export default Repositories
+export default Repositories;

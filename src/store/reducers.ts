@@ -1,9 +1,9 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import RepositorytReducer from "./repositories/reducer";
+import RepositorytReducer from './repositories/reducer';
 
 const rootReducer = combineReducers({
-    RepositorytReducer,
+  RepositorytReducer,
 });
 
 export default rootReducer;
