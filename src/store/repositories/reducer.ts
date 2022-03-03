@@ -3,7 +3,7 @@ import {
   GET_REPOSITORIES,
   GET_REPOSITORIES_SUCCESS,
   GET_REPOSITORIES_FAIL,
-} from './actionTypes';
+} from '../actionTypes';
 import { IRepositoryActions, RepositoriesState } from './types';
 
 const initialState: RepositoriesState = {

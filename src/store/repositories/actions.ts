@@ -2,7 +2,7 @@ import {
   GET_REPOSITORIES,
   GET_REPOSITORIES_SUCCESS,
   GET_REPOSITORIES_FAIL,
-} from './actionTypes';
+} from '../actionTypes';
 import { IRepositoryRes } from './types';
 
 export const getRepositories = (search: string) => ({
